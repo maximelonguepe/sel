@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/sel</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <mapping class="entities.E_TCategorieEntity"/>
+        <mapping class="entities.E_TCompetenceEntity"/>
+        <mapping class="entities.E_TCotisationsEntity"/>
+        <mapping class="entities.E_TMembreEntity"/>
+        <mapping class="entities.E_TMouvementCompteEcuEntity"/>
+        <mapping class="entities.E_TOperationChangeEntity"/>
+        <mapping class="entities.E_TOperationEcuEntity"/>
+        <mapping class="entities.E_TPropositionEntity"/>
+        <mapping class="entities.E_TExCascadeFkEntity"/>
+        <mapping class="entities.E_TExCascadeRefEntity"/>
+        <mapping class="entities.E_TProEntity"/>
+        <mapping class="entities.E_TPrtEntity"/>
+        <mapping class="entities.E_TVacEntity"/>
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
