@@ -78,11 +78,20 @@ public class Test4 {
 
 
             Query query = session.createNamedQuery("Find_cotisation_user");
-            List<E_TCotisationsEntity> e_tMembreEntities = new ArrayList<E_TCotisationsEntity>();
+            List<E_TCotisationsEntity> e_tCotisationsEntities = new ArrayList<E_TCotisationsEntity>();
             query.setParameter(1,"Lash");
             query.setParameter(2,"Max");
-            e_tMembreEntities =  query.getResultList();
+            e_tCotisationsEntities =  query.getResultList();
             System.out.println("a");
+
+            query=session.createNamedQuery("Find_transaction_user");
+            List<E_TMembreEntity> e_tMembreEntities1 = new ArrayList<>();
+            query.setParameter(1,"Lash");
+            query.setParameter(2,"Max");
+            e_tMembreEntities1=query.getResultList();
+            System.out.println("a");
+
+
 
         } finally {
             session.close();

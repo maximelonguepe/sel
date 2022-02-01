@@ -21,6 +21,8 @@
         <mapping class="entities.E_TProEntity"/>
         <mapping class="entities.E_TPrtEntity"/>
         <mapping class="entities.E_TVacEntity"/>
+        <mapping class="entities.E_TTransactionEntity"/>
+
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
     </session-factory>
