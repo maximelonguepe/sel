@@ -18,6 +18,12 @@ public class Test5 {
             maCategorie.setCategorie("Cours de Geek");
             categorieManager.update(maCategorie);
 
+
+            DaoCategorie categorieManager2 = new JpaDaoCategorie();
+            categorieManager2.create(maCategorie);
+            categorieManager.create(maCategorie);
+            System.out.println(categorieManager.findAll().size());
+            System.out.println(categorieManager2.findAll().size());
         } catch (Exception e) {
             e.printStackTrace();
         }
