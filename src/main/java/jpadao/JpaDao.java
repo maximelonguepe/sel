@@ -17,7 +17,7 @@ import java.util.List;
 public abstract class JpaDao<T> implements Dao<T> {
     private static SessionFactory ourSessionFactory;
     private Class<T> tClass;
-    final Session session = getSession();
+    private Session session;
 
     public JpaDao() {
         try {
@@ -25,6 +25,7 @@ public abstract class JpaDao<T> implements Dao<T> {
             configuration.configure(new File("src/main/java/hibernate.cfg.xml"));
 
             ourSessionFactory = configuration.buildSessionFactory();
+            session=getSession();
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
         }
@@ -48,6 +49,7 @@ public abstract class JpaDao<T> implements Dao<T> {
 
     @Override
     public T find(Integer id) {
+
         return session.find(tClass, id);
     }
 
