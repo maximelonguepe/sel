@@ -76,7 +76,7 @@ public class Test4 {
             tx.commit();
             System.out.println(e_tVacEntity);
 
-
+            //trouver toutes les cotisations d'un utilisateur
             Query query = session.createNamedQuery("Find_cotisation_user");
             List<E_TCotisationsEntity> e_tCotisationsEntities = new ArrayList<E_TCotisationsEntity>();
             query.setParameter(1,"Lash");
@@ -84,6 +84,7 @@ public class Test4 {
             e_tCotisationsEntities =  query.getResultList();
             System.out.println("a");
 
+            //trouver toutes les transactions d'un utilisateur
             query=session.createNamedQuery("Find_transaction_user");
             List<E_TMembreEntity> e_tMembreEntities1 = new ArrayList<>();
             query.setParameter(1,"Lash");
@@ -91,7 +92,11 @@ public class Test4 {
             e_tMembreEntities1=query.getResultList();
             System.out.println("a");
 
-
+            //somme toutes transaction entre deux dates
+            query=session.createNamedQuery("Sum_transaction_user");
+            query.setParameter(1,"Lash");
+            query.setParameter(2,"Max");
+            //e_tMembreEntities1=query.getResultList();
 
         } finally {
             session.close();

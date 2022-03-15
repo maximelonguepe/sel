@@ -7,7 +7,10 @@ import java.util.Objects;
 @Entity
 @Table(name = "t_transaction", schema = "sel", catalog = "")
 
-@NamedQuery(name="Find_transaction_user", query="SELECT e from E_TTransactionEntity e, E_TMembreEntity m where e.idMembreBeneficiaire = m.id and m.nomMembre=?1 and m.prenomMembre=?2")
+@NamedQueries({
+        @NamedQuery(name="Find_transaction_user", query="SELECT e from E_TTransactionEntity e, E_TMembreEntity m where e.idMembreBeneficiaire = m.id and m.nomMembre=?1 and m.prenomMembre=?2"),
+        @NamedQuery(name="Sum_transaction_user", query="SELECT SUM(t.montantTransaction) from E_TTransactionEntity t where t.dateValidation between ?1 and ?2")
+         })
 
 public class E_TTransactionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
